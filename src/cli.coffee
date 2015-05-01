@@ -3,9 +3,9 @@ path = require 'path'
 
 class Cli
   constructor: ->
-    @error = null
+    @exitCode = 0
 
-  buildOptions: (name) ->
+  getOptions: (name) ->
     options = {}
     options.name = name
     options
@@ -19,16 +19,16 @@ class Cli
 
   report: (message) ->
     if message
-      @error = 1
+      @exitCode = 1
       console.log(message)
 
   run: ->
     @getValidators()
 
     for name, validate of @validators
-      options = @buildOptions(name)
+      options = @getOptions(name)
       @report(validate(options))
 
-    @error
+    @exitCode
 
 module.exports = Cli
