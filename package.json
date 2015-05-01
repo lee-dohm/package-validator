@@ -1,0 +1,26 @@
+{
+  "name": "package-validator",
+  "version": "0.1.0",
+  "description": "Validates that Atom packages have the recommended features.",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lee-dohm/package-validator"
+  },
+  "keywords": [
+    "atom",
+    "package",
+    "validator"
+  ],
+  "author": "Lee Dohm <lee@lee-dohm.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lee-dohm/package-validator/issues"
+  },
+  "homepage": "https://github.com/lee-dohm/package-validator",
+  "dependencies": {
+    "coffee-script": "^1.9"
+  }
+}
