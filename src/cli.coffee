@@ -1,6 +1,11 @@
 fs = require 'fs'
 path = require 'path'
 
+validatorNames = [
+  'readme-present'
+  'license-present'
+]
+
 class Cli
   constructor: ->
     @exitCode = 0
@@ -14,9 +19,8 @@ class Cli
     validatorPath = path.join(__dirname, 'validators')
     @validators = {}
 
-    for filename in fs.readdirSync(validatorPath)
-      name = path.basename(filename, '.coffee')
-      @validators[name] = require(path.join(validatorPath, filename))
+    for name in validatorNames
+      @validators[name] = require(path.join(validatorPath, "#{name}.coffee"))
 
   report: (message) ->
     if message
