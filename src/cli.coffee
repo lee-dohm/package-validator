@@ -11,11 +11,12 @@ class Cli
     options
 
   getValidators: ->
+    validatorPath = path.join(__dirname, 'validators')
     @validators = {}
 
-    for filename in fs.readdirSync(path.join(__dirname, 'validators'))
+    for filename in fs.readdirSync(validatorPath)
       name = path.basename(filename, '.coffee')
-      @validators[name] = require(path.join(__dirname, 'validators', filename))
+      @validators[name] = require(path.join(validatorPath, filename))
 
   report: (message) ->
     if message
